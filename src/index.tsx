@@ -1,7 +1,7 @@
 import ReactDom from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import './global.modules.scss'
+import './global.scss'
 
 ReactDom.render(
   <BrowserRouter>
