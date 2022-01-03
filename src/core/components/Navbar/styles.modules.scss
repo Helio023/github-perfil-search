@@ -1,0 +1,40 @@
+.header {
+  background-color: #1890ff;
+  padding: 15px 50px;
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__logo {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.2s;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+
+    &__menu {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    &__item {
+      margin-right: 30px;
+    }
+
+    &__link {
+      color: #fff;
+      font-size: 25px;
+      transition: color 0.2s;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}
