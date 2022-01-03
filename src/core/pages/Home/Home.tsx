@@ -1,8 +1,16 @@
 import './styles.scss';
 import { ReactComponent as Background } from '../../../assets/images/bg.svg';
-import { Link } from 'react-router-dom';
+import AppButton from '../../components/Button/AppButton';
+import { useNavigate } from 'react-router-dom';
+
+
+
 
 const Home = () => {
+  const navigate = useNavigate()
+  const handleClick = () => {
+    navigate('/search')
+  }
   return (
     <div className='home'>
       <div className='home__text'>
@@ -10,9 +18,7 @@ const Home = () => {
           Pesquise perfil do <span>github</span>
         </h1>
 
-        <Link className='home__btn' to='/search'>
-          Pesquisar
-        </Link>
+        <AppButton text='Pesquisar' click={handleClick}/>
       </div>
       <div className='home__image'>
         <Background className='home__bg' />
