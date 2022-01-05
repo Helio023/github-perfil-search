@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
-// import perfilPhoto from '../../../assets/images/bg.png';
 import Loader from './components/Loader/Loader';
-import { DateTime } from 'luxon';
+
 import './styles.scss';
 
 type DataProps = {
@@ -11,29 +10,28 @@ type DataProps = {
   avatar_url: string;
   name: string;
   location: string;
-  created_at: string;
   bio: string;
   public_repos: string;
   followers: string;
-  following: string
+  following: string;
 };
 
 const Search = () => {
   const [name, setName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [isVisible, setIsVisible] = useState(false)
-  
+  const [isVisible, setIsVisible] = useState(false);
+
   const [data, setData] = useState<DataProps>({
     url: '',
     html_url: '',
     avatar_url: '',
     name: '',
     location: '',
-    created_at: '',
+
     bio: '',
     public_repos: '',
     followers: '',
-    following: ''
+    following: '',
   });
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,7 +41,7 @@ const Search = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    setIsVisible(true)
+    setIsVisible(true);
     setIsLoading(true);
     axios(`https://api.github.com/users/${name}`)
       .then((res) => {
@@ -66,7 +64,7 @@ const Search = () => {
           className='search__input'
         />
         <button type='submit' className='search__btn'>
-          {isLoading ? '...' : 'Pesquisar'}
+          {isLoading ? 'Pesquisando....' : 'Pesquisar'}
         </button>
       </form>
 
@@ -87,18 +85,17 @@ const Search = () => {
           </div>
 
           <div className='perfil__data'>
-            <div className="perfil__rep">
+            <div className='perfil__rep'>
               <p>repositórios públicos: {data.public_repos}</p>
               <p>seguidores: {data.followers}</p>
               <p>seguindo: {data.following}</p>
             </div>
 
-            <div className="perfil__info">
+            <div className='perfil__info'>
               <h4>Informações</h4>
               <p>Nome: {data.name}</p>
               <p>Biografia: {data.bio}</p>
               <p>Localização: {data.location}</p>
-              <p>Membro desde: {data.created_at}</p>
             </div>
           </div>
         </div>
