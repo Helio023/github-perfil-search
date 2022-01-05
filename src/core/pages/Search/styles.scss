@@ -1,0 +1,135 @@
+.search {
+  padding: 50px;
+
+  &__box {
+    padding: 50px;
+    background-color: #e6f7ff;
+    border-radius: 10px;
+  }
+
+  &__header {
+    margin-bottom: 25px;
+    letter-spacing: 0.15px;
+    font-weight: 600;
+  }
+
+  &__input {
+    padding: 10px 15px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #bbb;
+    width: 50%;
+    font-size: 16px;
+    color: #1890ff;
+  }
+
+  &__btn {
+    display: block;
+    font-size: 18px;
+    color: #fff;
+    background-color: #1890ff;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding: 15px 30px;
+    width: max-content;
+    margin-top: 50px;
+    cursor: pointer;
+  }
+
+  &__input-error {
+    border: 1px solid red;
+  }
+}
+
+.perfil {
+  margin-top: 50px;
+  display: flex;
+  background-color: #e1e1e1;
+  border-radius: 10px;
+  padding: 20px 10px;
+
+  &__rep {
+    display: flex;
+    justify-content: flex-start;
+
+    & p {
+      margin-right: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #bbb;
+      background-color: #eee;
+      text-transform: capitalize;
+      font-weight: bold;
+      font-size: 18px;
+    }
+  }
+
+  &__info {
+    margin-top: 15px;
+    border: 1px solid #bbb;
+    background-color: #eee;
+    padding: 5px;
+    border-radius: 5px;
+
+    & h4 {
+      font-size: 25px;
+      color: #1890ff;
+      padding: 5px;
+    }
+
+    & p {
+      padding:10px 5px;
+      border-radius: 5px;
+      background-color:  #fff;
+      border: 1px solid #bbb;
+
+      &:not(:first-child) {
+        margin-top: 15px;
+      }
+    }
+  }
+
+  &__img {
+    width: 25%;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-right: 20px;
+
+    & img {
+      width: 100%;
+      height: 250px;
+      object-fit: contain;
+    }
+  }
+
+  &__btn {
+    background-color: #1890ff;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 15px 30px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 50px;
+  }
+
+  &__data {
+    width: 73%;
+  }
+
+  &__empty {
+    margin-top: 50px;
+
+    h1 {
+      text-align: center;
+      font-size: 56px;
+      color: #bbb;
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
