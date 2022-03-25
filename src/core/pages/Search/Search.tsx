@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import NotFoundUser from '../../components/NotFoundUser/NotFoundUser';
 import Loader from './components/Loader/Loader';
 
@@ -71,7 +71,11 @@ const Search = () => {
           placeholder='ex: helio023'
           className='search__input'
         />
-        <button type='submit' disabled={name === '' ? true : false} className='search__btn'>
+        <button
+          type='submit'
+          disabled={name === '' ? true : false}
+          className='search__btn'
+        >
           {isLoading ? 'Pesquisando...' : 'Pesquisar'}
         </button>
       </form>
@@ -80,7 +84,9 @@ const Search = () => {
         <Loader />
       ) : (
         <>
-          {data.name === '' ? <NotFoundUser /> : (
+          {data.name === '' ? (
+            <>{isVisible && <NotFoundUser />}</>
+          ) : (
             <div className={isVisible ? 'perfil' : 'hide'}>
               <div className='perfil__img'>
                 <img src={data.avatar_url} alt={`Imagem de: ${data.name}`} />

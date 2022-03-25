@@ -55,6 +55,7 @@
 
     &:disabled {
       background-color: #bbb;
+      cursor: not-allowed;
     }
 
     @media (max-width: 600px) {
@@ -159,6 +160,11 @@
 
     @media (max-width: 940px) {
       margin-top: 20px;
+    }
+    @media (max-width: 500px) {
+      width: 100%;
+      text-align: center;
+      margin-left: 0;
     }
   }
 
