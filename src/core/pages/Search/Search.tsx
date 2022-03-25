@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import NotFoundUser from '../../components/NotFoundUser/NotFoundUser';
 import Loader from './components/Loader/Loader';
 
 import './styles.scss';
@@ -70,7 +71,7 @@ const Search = () => {
           placeholder='ex: helio023'
           className='search__input'
         />
-        <button type='submit' className='search__btn'>
+        <button type='submit' disabled={name === '' ? true : false} className='search__btn'>
           {isLoading ? 'Pesquisando...' : 'Pesquisar'}
         </button>
       </form>
@@ -78,43 +79,47 @@ const Search = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className={isVisible ? 'perfil' : 'hide'}>
-          <div className='perfil__img'>
-            <img src={data.avatar_url} alt={`Imagem de: ${data.name}`} />
-            <a
-              className='perfil__btn'
-              href={data?.html_url}
-              target='_blank'
-              rel='noreferrer'
-            >
-              Ver perfil
-            </a>
-          </div>
+        <>
+          {data.name === '' ? <NotFoundUser /> : (
+            <div className={isVisible ? 'perfil' : 'hide'}>
+              <div className='perfil__img'>
+                <img src={data.avatar_url} alt={`Imagem de: ${data.name}`} />
+                <a
+                  className='perfil__btn'
+                  href={data?.html_url}
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  Ver perfil
+                </a>
+              </div>
 
-          <div className='perfil__data'>
-            <div className='perfil__rep'>
-              <p>repositórios públicos: {data.public_repos}</p>
-              <p>seguidores: {data.followers}</p>
-              <p>seguindo: {data.following}</p>
-            </div>
+              <div className='perfil__data'>
+                <div className='perfil__rep'>
+                  <p>repositórios públicos: {data.public_repos}</p>
+                  <p>seguidores: {data.followers}</p>
+                  <p>seguindo: {data.following}</p>
+                </div>
 
-            <div className='perfil__info'>
-              <h4>Informações</h4>
-              <p>
-                <b>Nome</b>: {data.name}
-              </p>
-              <p>
-                <b>Biografia</b>: {data.bio}
-              </p>
-              <p>
-                <b>Localização</b>: {data.location}
-              </p>
-              <p>
-                <b>Criado em</b>: {handleDate(data.created_at)}
-              </p>
+                <div className='perfil__info'>
+                  <h4>Informações</h4>
+                  <p>
+                    <b>Nome</b>: {data.name}
+                  </p>
+                  <p>
+                    <b>Biografia</b>: {data.bio}
+                  </p>
+                  <p>
+                    <b>Localização</b>: {data.location}
+                  </p>
+                  <p>
+                    <b>Criado em</b>: {handleDate(data.created_at)}
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          )}
+        </>
       )}
     </div>
   );

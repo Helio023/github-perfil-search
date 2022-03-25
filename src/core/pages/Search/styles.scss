@@ -48,6 +48,10 @@
     margin-top: 50px;
     cursor: pointer;
 
+    &:disabled {
+      background-color: #bbb;
+    }
+
     @media (max-width: 600px) {
       width: 100%;
     }
