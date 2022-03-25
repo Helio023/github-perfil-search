@@ -9,6 +9,11 @@
     padding: 50px;
     background-color: #e6f7ff;
     border-radius: 10px;
+    font-weight: 600;
+
+    @media (max-width: 600px) {
+      padding: 20px;
+    }
   }
 
   &__header {
