@@ -14,6 +14,7 @@ type DataProps = {
   public_repos: string;
   followers: string;
   following: string;
+  created_at: Date;
 };
 
 const Search = () => {
@@ -27,11 +28,11 @@ const Search = () => {
     avatar_url: '',
     name: '',
     location: '',
-
     bio: '',
     public_repos: '',
     followers: '',
     following: '',
+    created_at: new Date(),
   });
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,6 +53,12 @@ const Search = () => {
       });
   };
 
+  const handleDate = (date: Date) => {
+    const newDate = new Date(date);
+
+    return `${newDate.getDay()}/${newDate.getMonth()}/${newDate.getFullYear()}`;
+  };
+
   return (
     <div className='search '>
       <form className='search__box' onSubmit={handleSubmit}>
@@ -64,7 +71,7 @@ const Search = () => {
           className='search__input'
         />
         <button type='submit' className='search__btn'>
-          {isLoading ? 'Pesquisando....' : 'Pesquisar'}
+          {isLoading ? 'Pesquisando...' : 'Pesquisar'}
         </button>
       </form>
 
@@ -93,9 +100,18 @@ const Search = () => {
 
             <div className='perfil__info'>
               <h4>Informações</h4>
-              <p>Nome: {data.name}</p>
-              <p>Biografia: {data.bio}</p>
-              <p>Localização: {data.location}</p>
+              <p>
+                <b>Nome</b>: {data.name}
+              </p>
+              <p>
+                <b>Biografia</b>: {data.bio}
+              </p>
+              <p>
+                <b>Localização</b>: {data.location}
+              </p>
+              <p>
+                <b>Criado em</b>: {handleDate(data.created_at)}
+              </p>
             </div>
           </div>
         </div>
