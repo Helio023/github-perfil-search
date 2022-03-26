@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import NotFoundUser from '../../components/NotFoundUser/NotFoundUser';
 import Loader from './components/Loader/Loader';
 
@@ -85,7 +85,7 @@ const Search = () => {
       ) : (
         <>
           {data.name === '' ? (
-            <>{isVisible && <NotFoundUser />}</>
+            <>{isVisible && <NotFoundUser text='Usuário não encontrado!'/>}</>
           ) : (
             <div className={isVisible ? 'perfil' : 'hide'}>
               <div className='perfil__img'>
